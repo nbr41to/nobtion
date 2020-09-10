@@ -254,6 +254,7 @@ figure {
 a {
   color: #0070f3;
   text-decoration: none;
+  cursor: pointer;
 }
 a:hover {
   color: #3291ff;
@@ -357,7 +358,7 @@ code {
   border-bottom: 1px dashed black;
 }
 
-footer {
+/* footer {
   padding: 2em 0;
   text-align: center;
 }
@@ -373,4 +374,18 @@ footer span:nth-child(3) {
 
 footer span:nth-child(3) a {
   color: inherit;
+} */
+
+/* footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 10px 10px;
 }
+
+footer a {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+} */

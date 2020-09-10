@@ -7,6 +7,8 @@ import Notion from './svgs/notion'
 import Edit from './svgs/edit'
 import Scroll from './svgs/scroll'
 
+// デフォであった,紹介用の単語集
+
 const features = [
   {
     text: 'Blazing fast',
