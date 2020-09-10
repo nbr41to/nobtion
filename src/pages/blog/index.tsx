@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 import blogStyles from '../../styles/blog.module.css'
 import sharedStyles from '../../styles/shared.module.css'
@@ -48,6 +49,7 @@ export async function getStaticProps({ preview }) {
 }
 
 export default ({ posts = [], preview }) => {
+  // console.log(posts)
   return (
     <>
       <Header titlePre="Blog" />
@@ -63,7 +65,7 @@ export default ({ posts = [], preview }) => {
         </div>
       )}
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
-        <h1>My Notion Blog</h1>
+        <h1>my tech blog</h1>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
@@ -97,6 +99,7 @@ export default ({ posts = [], preview }) => {
           )
         })}
       </div>
+      <Footer />
     </>
   )
 }

@@ -8,7 +8,6 @@ const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
   { label: 'Blog', page: '/blog' },
   { label: 'Contact', page: '/contact' },
-  { label: 'Source Code', link: 'https://github.com/ijjk/notion-blog' },
 ]
 
 const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
@@ -19,17 +18,21 @@ export default ({ titlePre = '' }) => {
   return (
     <header className={styles.header}>
       <Head>
-        <title>{titlePre ? `${titlePre} |` : ''} My Notion Blog</title>
+        <title>{titlePre ? `${titlePre} |` : ''} noblog</title>
         <meta
           name="description"
-          content="An example Next.js site using Notion for the blog"
+          content="Notion Blog で TechBlog を始めました.プログラミング,心理学,健康,その他の内容を記録してます"
         />
-        <meta name="og:title" content="My Notion Blog" />
+        <meta name="og:title" content="noblog" />
         <meta property="og:image" content={ogImageUrl} />
-        <meta name="twitter:site" content="@_ijjk" />
+        <meta name="twitter:site" content="@Knob_nbr41to" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
+      <Link href="/">
+        <h1>noblog</h1>
+      </Link>
+      <h2>1から始めるTech blog</h2>
       <ul>
         {navItems.map(({ label, page, link }) => (
           <li key={label}>
