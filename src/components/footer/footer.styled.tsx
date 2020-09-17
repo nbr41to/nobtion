@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledComponents = styled.footer`
+export const StyledComponent = styled.footer`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,6 +10,7 @@ export const StyledComponents = styled.footer`
     margin: 0 10px;
     display: flex;
     align-items: center;
+    color: red;
   }
   /* svg {
     margin: 0 10px
