@@ -9,7 +9,12 @@ export const StyledComponent = styled.header`
 
   h1 {
     font-size: 3.6rem;
+    font-weight: bold;
     cursor: pointer;
+  }
+  h2 {
+    font-size: 1.4rem;
+    padding: 2rem;
   }
 
   ul {
@@ -17,7 +22,8 @@ export const StyledComponent = styled.header`
     padding: 0;
     li {
       display: inline-block;
-      padding: 0 10px;
+      font-size: 1.6rem;
+      padding: 10px;
     }
   }
 
