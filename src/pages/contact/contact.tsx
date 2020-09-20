@@ -40,7 +40,7 @@ export default () => (
     <StyledComponent>
       <ExtLink className="logo" href="https://nbr41.com/">
         <img src="/avatar.png" alt="avatar with letters JJ" height={60} />
-        <h1 style={{ marginTop: 5 }}>Contact!!</h1>
+        <h1>Contact!!</h1>
       </ExtLink>
 
       <div className="contact-btn">

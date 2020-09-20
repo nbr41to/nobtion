@@ -12,6 +12,7 @@ export const StyledComponent = styled.div`
     }
     h1 {
       font-size: 2.4rem;
+      margin-top: 8px;
     }
   }
 

@@ -4,7 +4,7 @@ export const StyledComponent = styled.header`
   display: block;
   min-height: 64px;
   text-align: center;
-
+  padding-bottom: 16px;
   h1 {
     font-family: impact;
     font-size: 3.6rem;
@@ -38,6 +38,5 @@ export const StyledComponent = styled.header`
   }
 
   @media (max-width: 600px) {
-    padding: 0.5em 0 2em;
   }
 `
