@@ -9,20 +9,19 @@ export const StyledComponent = styled.header`
     font-family: impact;
     font-size: 3.6rem;
     font-weight: bold;
-    padding: 12px;
+    padding-top: 12px;
     cursor: pointer;
   }
   h2 {
     font-family: 'HiraKakuPro-W6';
     font-size: 1.2rem;
-    padding: 4px;
+    padding: 12px;
   }
 
   ul {
     list-style: none;
     color: white;
     background: black;
-    padding-bottom: 8px;
     li {
       display: inline-block;
       font-family: impact;
@@ -33,11 +32,11 @@ export const StyledComponent = styled.header`
 
   a {
     color: var(--accents-3);
-    font-weight: 400;
+    /* font-weight: 400; */
   }
 
   .active {
-    color: #0070f3;
+    color: orange;
     font-weight: 600;
   }
 
