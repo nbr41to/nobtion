@@ -13,15 +13,19 @@ export const StyledComponent = styled.header`
     cursor: pointer;
   }
   h2 {
+    font-family: 'HiraKakuPro-W6';
     font-size: 1.2rem;
     padding: 4px;
   }
 
   ul {
     list-style: none;
-    padding: 0;
+    color: white;
+    background: black;
+    padding-bottom: 8px;
     li {
       display: inline-block;
+      font-family: impact;
       font-size: 1.6rem;
       padding: 10px;
     }
@@ -38,6 +42,5 @@ export const StyledComponent = styled.header`
   }
 
   @media (max-width: 600px) {
-    padding: 0.5em 0 2em;
   }
 `

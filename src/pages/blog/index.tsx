@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 
+import { StyledComponent } from '../../styles/blog.styled'
 import blogStyles from '../../styles/blog.module.css'
 import sharedStyles from '../../styles/shared.module.css'
 
@@ -65,41 +66,40 @@ export default ({ posts = [], preview }) => {
           </div>
         </div>
       )}
-      <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
+      <StyledComponent>
         <h1>my tech blog</h1>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
         {posts.map(post => {
           return (
-            <div className={blogStyles.postPreview} key={post.Slug}>
-              <h3>
-                <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
-                  <div className={blogStyles.titleContainer}>
-                    {!post.Published && (
-                      <span className={blogStyles.draftBadge}>Draft</span>
+            <div className="post-card" key={post.Slug}>
+              <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
+                <a>
+                  {!post.Published && (
+                    <span className={blogStyles.draftBadge}>Draft</span>
+                  )}
+                  <h3 className="post-title">{post.Page}</h3>
+                  {/* 書いた人 */}
+                  {/* {post.Authors.length > 0 && (
+                  <div className="authors">By: {post.Authors.join(' ')}</div>
+                )} */}
+                  {post.Date && (
+                    <p className="posted">投稿日: {getDateStr(post.Date)}</p>
+                  )}
+                  <p>
+                    {(!post.preview || post.preview.length === 0) &&
+                      'No preview available'}
+                    {(post.preview || []).map((block, idx) =>
+                      textBlock(block, true, `${post.Slug}${idx}`)
                     )}
-                    <a>{post.Page}</a>
-                  </div>
-                </Link>
-              </h3>
-              {post.Authors.length > 0 && (
-                <div className="authors">By: {post.Authors.join(' ')}</div>
-              )}
-              {post.Date && (
-                <div className="posted">Posted: {getDateStr(post.Date)}</div>
-              )}
-              <p>
-                {(!post.preview || post.preview.length === 0) &&
-                  'No preview available'}
-                {(post.preview || []).map((block, idx) =>
-                  textBlock(block, true, `${post.Slug}${idx}`)
-                )}
-              </p>
+                  </p>
+                </a>
+              </Link>
             </div>
           )
         })}
-      </div>
+      </StyledComponent>
     </>
   )
 }

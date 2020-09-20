@@ -1,15 +1,15 @@
-import Header from '../../components/header'
-import Footer from '../../components/footer'
-import ExtLink from '../../components/ext-link'
-import { StyledComponent } from './contact.styled'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import ExtLink from '../components/ext-link'
+import { StyledComponent } from '../styles/contact.styled'
 
 // import sharedStyles from '../styles/shared.module.css'
 // import contactStyles from '../styles/contact.module.css'
 
-import GitHub from '../../components/svgs/github'
-import Twitter from '../../components/svgs/twitter'
-import Envelope from '../../components/svgs/envelope'
-import Note from '../../components/svgs/note'
+import GitHub from '../components/svgs/github'
+import Twitter from '../components/svgs/twitter'
+import Envelope from '../components/svgs/envelope'
+import Note from '../components/svgs/note'
 
 const contacts = [
   {
@@ -53,6 +53,5 @@ export default () => (
         })}
       </div>
     </StyledComponent>
-    <Footer />
   </>
 )
