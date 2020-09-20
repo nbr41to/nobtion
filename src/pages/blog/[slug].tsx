@@ -230,6 +230,9 @@ const RenderPost = ({ post, redirect, preview }) => {
             )
           }
 
+          /**
+           * Block type
+           */
           switch (type) {
             case 'page':
             case 'divider':

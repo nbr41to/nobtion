@@ -1,14 +1,15 @@
-import Header from '../components/header'
-import Footer from '../components/footer'
-import ExtLink from '../components/ext-link'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import ExtLink from '../../components/ext-link'
+import { StyledComponent } from './contact.styled'
 
 // import sharedStyles from '../styles/shared.module.css'
 // import contactStyles from '../styles/contact.module.css'
 
-import GitHub from '../components/svgs/github'
-import Twitter from '../components/svgs/twitter'
-import Envelope from '../components/svgs/envelope'
-import Note from '../components/svgs/note'
+import GitHub from '../../components/svgs/github'
+import Twitter from '../../components/svgs/twitter'
+import Envelope from '../../components/svgs/envelope'
+import Note from '../../components/svgs/note'
 
 const contacts = [
   {
@@ -36,14 +37,13 @@ const contacts = [
 export default () => (
   <>
     <Header titlePre="Contact" />
-    <div>
-      <div>
+    <StyledComponent>
+      <ExtLink className="logo" href="https://nbr41.com/">
         <img src="/avatar.png" alt="avatar with letters JJ" height={60} />
-      </div>
+        <h1 style={{ marginTop: 5 }}>Contact!!</h1>
+      </ExtLink>
 
-      <h1 style={{ marginTop: 0 }}>Contact</h1>
-
-      <div>
+      <div className="contact-btn">
         {contacts.map(({ Comp, link, alt }) => {
           return (
             <ExtLink key={link} href={link} aria-label={alt}>
@@ -52,7 +52,7 @@ export default () => (
           )
         })}
       </div>
-    </div>
+    </StyledComponent>
     <Footer />
   </>
 )
