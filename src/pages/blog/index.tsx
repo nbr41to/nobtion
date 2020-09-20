@@ -100,7 +100,6 @@ export default ({ posts = [], preview }) => {
           )
         })}
       </div>
-      <Footer />
     </>
   )
 }
