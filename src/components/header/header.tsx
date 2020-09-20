@@ -32,7 +32,7 @@ export default ({ titlePre = '' }) => {
       <Link href="/">
         <h1>noblog</h1>
       </Link>
-      <h2>1から始めるTech blog</h2>
+      <h2>〜 脳の可塑性が失われる前に 〜</h2>
       <ul>
         {navItems.map(({ label, page, link }) => (
           <li key={label}>

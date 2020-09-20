@@ -3,13 +3,18 @@ import styled from 'styled-components'
 export const StyledComponent = styled.header`
   display: block;
   min-height: 64px;
-  padding: 2em 0;
   text-align: center;
-  letter-spacing: -0.02em;
 
   h1 {
+    font-family: impact;
     font-size: 3.6rem;
+    font-weight: bold;
+    padding: 12px;
     cursor: pointer;
+  }
+  h2 {
+    font-size: 1.2rem;
+    padding: 4px;
   }
 
   ul {
@@ -17,7 +22,8 @@ export const StyledComponent = styled.header`
     padding: 0;
     li {
       display: inline-block;
-      padding: 0 10px;
+      font-size: 1.6rem;
+      padding: 10px;
     }
   }
 
