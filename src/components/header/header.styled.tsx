@@ -9,6 +9,7 @@ export const StyledComponent = styled.header`
     h1 {
       font-family: 'impact', sans-serif;
       font-size: 4.8rem;
+      font-weight: bold;
       padding: 4px 20px;
       margin-top: 16px;
       cursor: pointer;
@@ -38,8 +39,9 @@ export const StyledComponent = styled.header`
       color: white;
       background: black;
       li {
-        font-family: impact;
+        font-family: 'impact', sans-serif;
         font-size: 1.8rem;
+        font-weight: bold;
         padding: 12px 20px;
         @media (max-width: 600px) {
           font-size: 1.6rem;

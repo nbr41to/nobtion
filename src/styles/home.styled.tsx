@@ -5,6 +5,7 @@ export const StyledComponent = styled.div`
     h2 {
       font-family: 'impact', sans-serif;
       font-size: 2.6rem;
+      font-weight: bold;
       text-align: center;
       padding: 14px;
       color: white;
