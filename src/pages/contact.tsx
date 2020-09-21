@@ -53,5 +53,6 @@ export default () => (
         })}
       </div>
     </StyledComponent>
+    <Footer />
   </>
 )

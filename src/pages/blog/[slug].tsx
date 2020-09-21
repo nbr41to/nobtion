@@ -443,6 +443,7 @@ const RenderPost = ({ post, redirect, preview }) => {
           })}
         </div>
       </StyledBlocks>
+      <Footer />
     </>
   )
 }

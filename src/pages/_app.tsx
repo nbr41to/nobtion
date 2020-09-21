@@ -8,6 +8,5 @@ export default ({ Component, pageProps }) => (
   <>
     <GlobalStyle />
     <Component {...pageProps} />
-    <Footer />
   </>
 )

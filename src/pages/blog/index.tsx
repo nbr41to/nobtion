@@ -66,7 +66,7 @@ export default ({ posts = [], preview }) => {
         </div>
       )}
       <StyledComponent>
-        <div className="menu">
+        {/* <div className="menu">
           <ul>
             <h2>Category：</h2>
             <li>ALL</li>
@@ -81,7 +81,7 @@ export default ({ posts = [], preview }) => {
             <li>React</li>
             <li>Health</li>
           </ul>
-        </div>
+        </div> */}
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
@@ -132,6 +132,7 @@ export default ({ posts = [], preview }) => {
           )
         })}
       </StyledComponent>
+      <Footer />
     </>
   )
 }

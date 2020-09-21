@@ -5,6 +5,7 @@ export const StyledComponent = styled.div`
   .menu {
     ul {
       display: flex;
+      flex-wrap: wrap;
       padding: 4px;
       li {
         padding: 0 8px;
