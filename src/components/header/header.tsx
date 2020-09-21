@@ -14,7 +14,6 @@ const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
 
 export default ({ titlePre = '' }) => {
   const { pathname } = useRouter()
-  console.log(useRouter())
 
   return (
     <StyledComponent>

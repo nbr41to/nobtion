@@ -137,7 +137,7 @@ const RenderPost = ({ post, redirect, preview }) => {
       </div>
     )
   }
-  console.log(post)
+  // console.log(post)
 
   return (
     <>

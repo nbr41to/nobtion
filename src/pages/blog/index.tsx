@@ -50,8 +50,7 @@ export async function getStaticProps({ preview }) {
 }
 
 export default ({ posts = [], preview }) => {
-  console.log(posts)
-  console.log(preview)
+  // console.log(posts)
   return (
     <>
       <Header titlePre="Blog" />
@@ -67,7 +66,22 @@ export default ({ posts = [], preview }) => {
         </div>
       )}
       <StyledComponent>
-        <h1>my tech blog</h1>
+        <div className="menu">
+          <ul>
+            <h2>Category：</h2>
+            <li>ALL</li>
+            <li>Programming</li>
+            <li>Psychology</li>
+            <li>Life</li>
+          </ul>
+          <ul>
+            <h2>Tags：</h2>
+            <li>Notion</li>
+            <li>Notion Blog</li>
+            <li>React</li>
+            <li>Health</li>
+          </ul>
+        </div>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
@@ -87,13 +101,31 @@ export default ({ posts = [], preview }) => {
                   {post.Date && (
                     <p className="posted">投稿日: {getDateStr(post.Date)}</p>
                   )}
-                  <p>
+                  {post.Category && (
+                    <p>
+                      カテゴリ:
+                      <span className="category">{post.Category}</span>
+                      {/* Category名をclassNameにする */}
+                    </p>
+                  )}
+                  {post.Tag && (
+                    <ul className="tag-list">
+                      <p>タグ:</p>
+                      {post.Tag.split(',').map((tag, index) => (
+                        <li className="tag-name" key={index}>
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* <p>
                     {(!post.preview || post.preview.length === 0) &&
                       'No preview available'}
                     {(post.preview || []).map((block, idx) =>
                       textBlock(block, true, `${post.Slug}${idx}`)
                     )}
-                  </p>
+                  </p> */}
                 </a>
               </Link>
             </div>
