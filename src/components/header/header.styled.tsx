@@ -7,7 +7,7 @@ export const StyledComponent = styled.header`
     justify-content: center;
     align-items: center;
     h1 {
-      font-family: impact;
+      font-family: 'impact';
       font-size: 4.8rem;
       padding: 4px 20px;
       margin-top: 16px;

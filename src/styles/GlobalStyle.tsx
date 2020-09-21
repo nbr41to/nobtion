@@ -6,7 +6,12 @@ export const GlobalStyle = createGlobalStyle`
         body {
             max-width: 1000px;
             margin: 0 auto;
-            font-family: 'Hiragino Kaku Gothic ProN';
+            font-family: "Helvetica Neue",
+            Arial,
+            "Hiragino Kaku Gothic ProN",
+            "Hiragino Sans",
+            Meiryo,
+            sans-serif;
         }
   }
 `
