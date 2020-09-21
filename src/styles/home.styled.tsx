@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledComponent = styled.div`
   .concept {
     h2 {
-      font-family: 'impact';
+      font-family: 'impact', sans-serif;
       font-size: 2.6rem;
       text-align: center;
       padding: 14px;
