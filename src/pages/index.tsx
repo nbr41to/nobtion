@@ -32,6 +32,7 @@ export default () => (
         </section>
         <section>
           <h3>Notionとは</h3>
+          <img className="notion-img" src="/notion.png" />
           <p>
             さて、そんな新しいもの好きの僕が愛してやまない万能ノートアプリであるNotionの紹介です。メモ、SNS、データベース、メディア埋め込みなどのありとあらゆる機能が持ち込まれたアプリケーションとなってます。是非使ってみてください！僕のまとめたNotionの使い方は
             <ExtLink href="https://www.notion.so/nob41to/About-Notion-6e8c4ac4a64e44959d8d9f6629d4f9f5">
@@ -42,6 +43,7 @@ export default () => (
         </section>
         <section>
           <h3>NotionBlogとは</h3>
+          <img className="notionblog-img" src="/vercel-and-notion.png" />
           <p>
             そんなNotionのデータベースを活用してBlogが作れるフレームワークをNextjsを開発しているVercel社の社員さんが開発してくれました！React系統のプログラミング学習にもってこいなので、
             <ExtLink href="https://twitter.com/___35d">@__35d</ExtLink>

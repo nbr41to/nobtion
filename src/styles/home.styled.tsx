@@ -28,6 +28,7 @@ export const StyledComponent = styled.div`
     section {
       padding: 12px;
       margin: 20px 0;
+
       h3 {
         font-size: 1.8rem;
         font-weight: bold;
@@ -49,6 +50,18 @@ export const StyledComponent = styled.div`
           color: blue;
           text-decoration-line: underline;
         }
+      }
+      .notion-img {
+        display: block;
+        width: 120px;
+        padding: 24px 0 16px 0;
+        margin: 0 auto;
+      }
+      .notionblog-img {
+        display: block;
+        width: 300px;
+        padding: 12px 0;
+        margin: 0 auto;
       }
     }
   }
