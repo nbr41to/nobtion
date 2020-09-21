@@ -14,6 +14,7 @@ const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
 
 export default ({ titlePre = '' }) => {
   const { pathname } = useRouter()
+  console.log(useRouter())
 
   return (
     <StyledComponent>
@@ -29,25 +30,29 @@ export default ({ titlePre = '' }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
-      <Link href="/">
-        <h1>noblog</h1>
-      </Link>
-      <h2>〜 脳の可塑性が失われる前に 〜</h2>
-      <ul>
-        {navItems.map(({ label, page, link }) => (
-          <li key={label}>
-            {page ? (
-              <Link href={page}>
-                <a className={pathname === page ? 'active' : undefined}>
-                  {label}
-                </a>
-              </Link>
-            ) : (
-              <ExtLink href={link}>{label}</ExtLink>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="header-container">
+        <Link href="/">
+          <h1>noblog</h1>
+        </Link>
+        <h2>〜 脳の可塑性が失われる前に 〜</h2>
+      </div>
+      <div className="menu-container">
+        <ul>
+          {navItems.map(({ label, page, link }) => (
+            <li key={label}>
+              {page ? (
+                <Link href={page}>
+                  <a className={pathname === page ? 'active' : undefined}>
+                    {label}
+                  </a>
+                </Link>
+              ) : (
+                <ExtLink href={link}>{label}</ExtLink>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </StyledComponent>
   )
 }

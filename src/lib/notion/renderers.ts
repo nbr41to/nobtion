@@ -7,7 +7,7 @@ function applyTags(tags = [], children, noPTag = false, key) {
   for (const tag of tags) {
     const props: { [key: string]: any } = { key }
     let tagName = tag[0]
-
+    // tag[1]は数式だったり,colorだったり
     if (noPTag && tagName === 'p') tagName = React.Fragment
     if (tagName === 'c') tagName = 'code'
     if (tagName === '_') {
@@ -21,6 +21,10 @@ function applyTags(tags = [], children, noPTag = false, key) {
       tagName = components.Equation
       props.displayMode = false
       child = tag[1]
+    }
+    if (tagName === 'h') {
+      tagName = 'span'
+      props.className = tag[1]
     }
 
     child = React.createElement(components[tagName] || tagName, props, child)

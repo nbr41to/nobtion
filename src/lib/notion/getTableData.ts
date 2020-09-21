@@ -36,7 +36,7 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
       // authors and blocks are centralized
       if (val && props[key][0][1]) {
         const type = props[key][0][1][0]
-
+        console.log(type)
         switch (type[0]) {
           case 'a': // link
             val = type[1]

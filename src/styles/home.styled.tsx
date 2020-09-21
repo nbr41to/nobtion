@@ -1,24 +1,55 @@
 import styled from 'styled-components'
 
 export const StyledComponent = styled.div`
-  h2 {
-    font-family: impact;
-    font-size: 1.6rem;
-    text-align: center;
-    padding: 8px;
-    /* color: white;
-    background-color: black; */
+  .concept {
+    h2 {
+      font-family: impact;
+      font-size: 2.6rem;
+      text-align: center;
+      padding: 14px;
+      color: white;
+      background-color: black;
+      @media (max-width: 600px) {
+        font-size: 1.6rem;
+        padding: 8px;
+      }
+    }
+    p {
+      font-size: 1.4rem;
+      padding: 40px 80px;
+      @media (max-width: 600px) {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+      }
+    }
   }
-  p {
-    padding: 0 12px;
-  }
-  a {
-    display: block;
-    font-weight: bold;
-    text-align: center;
-    padding: 12px;
-    :hover {
-      color: orange;
+
+  .description {
+    section {
+      padding: 12px;
+      margin: 20px 0;
+      h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+        @media (max-width: 600px) {
+          font-size: 1.4rem;
+          padding: 8px;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        padding: 12px 8px;
+        @media (max-width: 600px) {
+          font-size: 1.2rem;
+        }
+        a {
+          font-weight: bold;
+          color: blue;
+          text-decoration-line: underline;
+        }
+      }
     }
   }
 `
