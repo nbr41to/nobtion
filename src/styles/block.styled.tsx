@@ -45,7 +45,7 @@ export const StyledBlocks = styled.div`
   }
   p {
     font-size: 1.2rem;
-    padding: 4px 0;
+    padding: 8px 0;
     @media (max-width: 600px) {
       font-size: 1rem;
     }
