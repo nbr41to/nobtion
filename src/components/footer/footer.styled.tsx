@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyledComponent = styled.footer`
   width: 100vw;
+  margin: auto 0 0;
   small {
     font-family: Arial;
     display: flex;

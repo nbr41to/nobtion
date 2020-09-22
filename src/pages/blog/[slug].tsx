@@ -99,6 +99,24 @@ const RenderPost = ({ post, redirect, preview }) => {
     }
   } = {}
 
+  // const getH2tagsText = () => {
+  //   const content = document.getElementById("content")
+  //   const getValue = content.getElementsByTagName("h2");
+  //   // ここで getValueはHTMLCollection という配列もどきになっているので.配列メソッドは使えない
+  //   // そこで,Array.prototypeを使う
+  //   Array.prototype.map.call(getValue, (item, index) => {
+  //     // idを割り振って
+  //     item.id = index
+  //     // そのcontentTextを取得
+  //     subtitle.push(item.innerText)
+  //     setSubtitle(subtitle)
+  //   })
+  // }
+
+  /**
+   * useEffect
+   */
+
   useEffect(() => {
     const twitterSrc = 'https://platform.twitter.com/widgets.js'
     // make sure to initialize any new widgets loading on
@@ -113,7 +131,9 @@ const RenderPost = ({ post, redirect, preview }) => {
         document.querySelector('body').appendChild(script)
       }
     }
+    // getH2tagsText()
   }, [])
+
   useEffect(() => {
     if (redirect && !post) {
       router.replace(redirect)
@@ -137,7 +157,7 @@ const RenderPost = ({ post, redirect, preview }) => {
       </div>
     )
   }
-  // console.log(post)
+  console.log(post)
 
   return (
     <>
@@ -154,16 +174,16 @@ const RenderPost = ({ post, redirect, preview }) => {
         </div>
       )} */}
       <StyledBlocks>
-        <div className={blogStyles.post}>
-          <h1>{post.Page || ''}</h1>
+        <div
+        // className={blogStyles.post}
+        >
+          <h1 className="title">{post.Page || ''}</h1>
           {post.Authors.length > 0 && (
             <div className="authors">By: {post.Authors.join(' ')}</div>
           )}
           {post.Date && (
             <div className="posted">Posted: {getDateStr(post.Date)}</div>
           )}
-
-          <hr />
 
           {(!post.content || post.content.length === 0) && (
             <p>This post has no content</p>
@@ -269,7 +289,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                 const childStyle: CSSProperties = useWrapper
                   ? {
                       width: '100%',
-                      height: '100%',
+                      height: 'auto',
                       border: 'none',
                       position: 'absolute',
                       top: 0,
@@ -371,14 +391,14 @@ const RenderPost = ({ post, redirect, preview }) => {
                 if (properties.title) {
                   const content = properties.title[0][0]
                   toRender.push(
-                    <li className="todo">
+                    <p className="to_do">
                       <input
                         type="checkbox"
                         checked={properties.checked}
                         disabled
                       />
                       {content}
-                    </li>
+                    </p>
                   )
                 }
                 break
@@ -426,6 +446,15 @@ const RenderPost = ({ post, redirect, preview }) => {
                     <components.Equation key={id} displayMode={true}>
                       {content}
                     </components.Equation>
+                  )
+                }
+                break
+              }
+              case 'table_of_contents': {
+                if (properties && properties.title) {
+                  const content = properties.title[0][0]
+                  toRender.push(
+                    <div className="table_of_contents">{content}</div>
                   )
                 }
                 break

@@ -22,15 +22,20 @@ export default ({ titlePre = '' }) => {
           content="Notion Blog で TechBlog を始めました.プログラミング,心理学,健康,その他の内容を記録してます"
         />
         <meta name="og:title" content="noblog" />
-        <meta property="og:image" content="/logo.jpg" />
+        <meta property="og:image" content="/site-logo.jpg" />
         <meta name="twitter:site" content="@Knob_nbr41to" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/logo.jpg" />
-        <link rel="apple-touch-icon" href="/logo.jpg" />
+        <meta name="twitter:image" content="/site-logo.jpg" />
+        <link rel="apple-touch-icon" href="/site-logo.jpg" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/earlyaccess/notosansjp.css"
+        />
       </Head>
       <div className="header-container">
         <Link href="/">
           <h1>noblog</h1>
+          {/* <img className="site-logo" src="/title-logo.jpg" /> */}
         </Link>
         <h2>〜 脳の可塑性が失われる前に 〜</h2>
       </div>

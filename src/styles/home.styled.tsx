@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const StyledComponent = styled.div`
   .concept {
     h2 {
-      font-family: 'impact', sans-serif;
+      /* font-family: 'impact', sans-serif; */
+      font-family: 'ArialRoundedMTBold', sans-serif;
       font-size: 2.6rem;
       font-weight: bold;
       text-align: center;
@@ -12,7 +13,7 @@ export const StyledComponent = styled.div`
       background-color: black;
       @media (max-width: 600px) {
         font-size: 1.6rem;
-        padding: 8px;
+        padding: 8px 0;
       }
     }
     p {

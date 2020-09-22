@@ -4,7 +4,7 @@ export const StyledComponent = styled.div`
   .logo {
     display: block;
     width: 250px;
-    margin: 60px auto;
+    margin: 40px auto;
     text-align: center;
     img {
       width: 100%;
@@ -13,10 +13,12 @@ export const StyledComponent = styled.div`
         width: 80%;
       }
     }
-    h1 {
+    h2 {
       font-size: 2.4rem;
       @media (max-width: 600px) {
+        font-family: 'ArialRoundedMTBold', sans-serif;
         font-size: 2rem;
+        margin-top: 20px;
       }
     }
   }

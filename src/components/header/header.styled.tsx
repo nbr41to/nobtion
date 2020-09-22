@@ -6,8 +6,18 @@ export const StyledComponent = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* .site-logo {
+        width: 300px;
+        height: 150px;
+        object-fit: cover;
+      @media (max-width: 600px) {
+        width: 200px;
+        height: 100px;
+      }
+    } */
     h1 {
-      font-family: 'impact', sans-serif;
+      font-family: 'ArialRoundedMTBold', sans-serif;
+      /* font-family: impact,'MS Sans Serif','Tahoma', sans-serif; */
       font-size: 4.8rem;
       font-weight: bold;
       padding: 4px 20px;
@@ -20,7 +30,6 @@ export const StyledComponent = styled.header`
       }
     }
     h2 {
-      /* font-family: 'HiraKakuPro-W6'; */
       font-size: 1.4rem;
       font-weight: bold;
       padding: 12px;
@@ -39,9 +48,11 @@ export const StyledComponent = styled.header`
       color: white;
       background: black;
       li {
-        font-family: 'impact', sans-serif;
+        /* font-family: 'Verdana'; */
+        font-family: 'ArialRoundedMTBold', sans-serif;
+        /* font-family: 'arial narrow','impact','Hiragino Kaku Gothic StdN', sans-serif; */
         font-size: 1.8rem;
-        font-weight: bold;
+        /* font-weight: bold; */
         padding: 12px 20px;
         @media (max-width: 600px) {
           font-size: 1.6rem;
@@ -50,7 +61,6 @@ export const StyledComponent = styled.header`
       }
       .active {
         color: orange;
-        font-weight: 600;
       }
     }
   }
