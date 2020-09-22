@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Heading from '../../components/heading'
+import ExtLink from '../../components/ext-link'
 import components from '../../components/dynamic'
 import ReactJSXParser from '@zeit/react-jsx-parser'
 import blogStyles from '../../styles/blog.module.css'
@@ -191,7 +192,7 @@ const RenderPost = ({ post, redirect, preview }) => {
 
           {(post.content || []).map((block, blockIdx) => {
             const { value } = block
-            const { type, properties, id, parent_id } = value
+            const { type, properties, id, parent_id, format } = value
             const isLast = blockIdx === post.content.length - 1
             const isList = listTypes.has(type)
             let toRender = []
@@ -291,8 +292,8 @@ const RenderPost = ({ post, redirect, preview }) => {
                       width: '100%',
                       height: 'auto',
                       border: 'none',
-                      position: 'absolute',
-                      top: 0,
+                      // position: 'relative',
+                      // top: 0,
                     }
                   : {
                       width,
@@ -336,7 +337,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                   useWrapper ? (
                     <div
                       style={{
-                        paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
+                        // paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
                         position: 'relative',
                       }}
                       className="asset-wrapper"
@@ -418,8 +419,10 @@ const RenderPost = ({ post, redirect, preview }) => {
               case 'callout': {
                 toRender.push(
                   <div className="callout" key={id}>
-                    {value.format?.page_icon && (
-                      <div>{value.format?.page_icon}</div>
+                    {!properties.language ? (
+                      <div>{format?.page_icon}</div>
+                    ) : (
+                      <img className="mee-icon" src="/icon-circle.png" />
                     )}
                     <div className="text">
                       {textBlock(properties.title, true, id)}
@@ -454,7 +457,46 @@ const RenderPost = ({ post, redirect, preview }) => {
                 if (properties && properties.title) {
                   const content = properties.title[0][0]
                   toRender.push(
-                    <div className="table_of_contents">{content}</div>
+                    <>
+                      <p>作業中...TOC</p>
+                      <div className="table_of_contents">{content}</div>
+                    </>
+                  )
+                }
+                break
+              }
+              case 'bookmark': {
+                if (properties && properties.title) {
+                  const image_cover = []
+                  const image_icon = []
+                  if (format?.bookmark_cover) {
+                    image_cover.push(format.bookmark_cover)
+                  }
+                  if (format?.bookmark_icon) {
+                    image_icon.push(format.bookmark_icon)
+                  }
+                  toRender.push(
+                    <ExtLink href={properties.link[0][0]}>
+                      <div className="bookmark">
+                        <div className="info">
+                          <h3 className="name">
+                            {image_icon && (
+                              <img className="icon" src={image_icon[0]} />
+                            )}
+                            {properties.title[0][0]}
+                          </h3>
+                          {properties.description && (
+                            <p className="description">
+                              {properties.description[0][0].slice(0, 200)}
+                            </p>
+                          )}
+                          <p className="url">{properties.link[0][0]}</p>
+                        </div>
+                        {image_cover && (
+                          <img className="cover" src={image_cover[0]} />
+                        )}
+                      </div>
+                    </ExtLink>
                   )
                 }
                 break

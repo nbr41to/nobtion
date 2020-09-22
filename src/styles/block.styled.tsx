@@ -49,6 +49,11 @@ export const StyledBlocks = styled.div`
     @media (max-width: 600px) {
       font-size: 1rem;
     }
+    /* DismissLink用 */
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
   }
 
   img,
@@ -140,28 +145,94 @@ export const StyledBlocks = styled.div`
   }
 
   .callout {
-    padding: 16px 16px 16px 12px;
+    padding: 16px;
     margin: 24px auto;
     font-size: 1.2rem;
     display: flex;
+    align-items: center;
     width: 100%;
     border-radius: 3px;
     border-width: 1px;
     border-style: solid;
     border-color: transparent;
-    background: rgba(235, 236, 237, 0.6);
+    background-color: #ddd;
     .text {
-      margin-left: 8px;
+      margin-left: 12px;
+    }
+    .mee-icon {
+      box-shadow: none;
+      width: 60px;
+      margin: 0 8px;
     }
     @media (max-width: 600px) {
       margin: 12px 0;
+      padding: 12px 8px;
       font-size: 1rem;
+      .mee-icon {
+        width: 30px;
+        margin: 0;
+      }
     }
   }
+  
   .to_do {
     input {
       :disabled {
       }
+    }
+  }
+
+  .bookmark {
+    display: flex;
+    padding: 12px 24px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 24px 12px;
+    @media (max-width: 600px) {
+      padding: 8px 12px;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .info {
+      .name {
+        font-size: 1.2rem;
+        @media (max-width: 600px) {
+          font-size: 1rem;
+        }
+        .icon {
+          display: inline-block;
+          width: 30px;
+          box-shadow: none;
+          margin: 0;
+          border: 1px solid #ccc;
+          @media (max-width: 600px) {
+            width: 20px;
+          }
+        }
+      }
+      .description {
+        font-size: 1.0rem;
+        color: #444;
+        @media (max-width: 600px) {
+          font-size: 0.8rem;    
+        }
+      }
+      .url {
+        font-size: 1.0rem;
+        text-align: right;
+        text-decoration: underline;
+        @media (max-width: 600px) {
+          font-size: 0.8rem;
+          text-align: left;    
+        }
+      }
+    }
+    .cover {
+      width: 240px;
+      margin-left: 24px;
+      @media (max-width: 600px) {
+      margin: 8px auto;
+      width: 300px;
     }
   }
 
