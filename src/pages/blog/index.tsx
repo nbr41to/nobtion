@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -50,87 +51,114 @@ export async function getStaticProps({ preview }) {
 }
 
 export default ({ posts = [], preview }) => {
-  // console.log(posts)
+  const [selectCategory, setSelectCategory] = useState('all')
+
+  const changeCategory = category => {
+    setSelectCategory(category)
+  }
+  console.log(posts)
   return (
     <>
       <Header titlePre="Blog" />
-      {preview && (
-        <div className={blogStyles.previewAlertContainer}>
-          <div className={blogStyles.previewAlert}>
-            <b>Note:</b>
-            {` `}Viewing in preview mode{' '}
-            <Link href={`/api/clear-preview`}>
-              <button className={blogStyles.escapePreview}>Exit Preview</button>
-            </Link>
-          </div>
-        </div>
-      )}
       <StyledComponent>
-        {/* <div className="menu">
+        <div className="menu">
+          <h2>Category</h2>
           <ul>
-            <h2>Category：</h2>
-            <li>ALL</li>
-            <li>Programming</li>
-            <li>Psychology</li>
-            <li>Life</li>
+            <li
+              className={selectCategory === 'all' ? 'active' : ''}
+              onClick={() => setSelectCategory('all')}
+            >
+              ALL
+            </li>
+            <li
+              className={selectCategory === 'Programming' ? 'active' : ''}
+              onClick={() => setSelectCategory('Programming')}
+            >
+              {' '}
+              Programming
+            </li>
+            <li
+              className={selectCategory === 'Psychology' ? 'active' : ''}
+              onClick={() => setSelectCategory('Psychology')}
+            >
+              Psychology
+            </li>
+            <li
+              className={selectCategory === 'Life' ? 'active' : ''}
+              onClick={() => setSelectCategory('Life')}
+            >
+              Life
+            </li>
           </ul>
-          <ul>
+          {/* <ul>
             <h2>Tags：</h2>
             <li>Notion</li>
             <li>Notion Blog</li>
             <li>React</li>
             <li>Health</li>
-          </ul>
-        </div> */}
-        {posts.length === 0 && (
-          <p className={blogStyles.noPosts}>There are no posts yet</p>
-        )}
-        {posts.map(post => {
-          return (
-            <div className="post-card" key={post.Slug}>
-              <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
-                <a>
-                  {!post.Published && (
-                    <span className={blogStyles.draftBadge}>Draft</span>
-                  )}
-                  <h3 className="post-title">{post.Page}</h3>
-                  {/* 書いた人 */}
-                  {/* {post.Authors.length > 0 && (
+          </ul> */}
+        </div>
+        {posts.filter(post => {
+          if (selectCategory === 'all') {
+            return true
+          } else {
+            return post.Category === selectCategory
+          }
+        }).length === 0 && <p className="nopost-message">記事がありません。</p>}
+        {posts
+          .filter(post => {
+            if (selectCategory === 'all') {
+              return true
+            } else {
+              return post.Category === selectCategory
+            }
+          })
+          .map(post => {
+            return (
+              <div className="post-card" key={post.Slug}>
+                <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>
+                  <a>
+                    {!post.Published && (
+                      <span className={blogStyles.draftBadge}>Draft</span>
+                    )}
+                    <h3 className="post-title">{post.Page}</h3>
+                    {/* 書いた人 */}
+                    {/* {post.Authors.length > 0 && (
                   <div className="authors">By: {post.Authors.join(' ')}</div>
                 )} */}
-                  {post.Date && (
-                    <p className="posted">投稿日: {getDateStr(post.Date)}</p>
-                  )}
-                  {post.Category && (
-                    <p>
-                      カテゴリ:
-                      <span className="category">{post.Category}</span>
-                      {/* Category名をclassNameにする */}
-                    </p>
-                  )}
-                  {post.Tag && (
-                    <ul className="tag-list">
-                      <p>タグ:</p>
-                      {post.Tag.split(',').map((tag, index) => (
-                        <li className="tag-name" key={index}>
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                    {post.Date && (
+                      <p className="posted">投稿日: {getDateStr(post.Date)}</p>
+                    )}
+                    {post.Category && (
+                      <p>
+                        カテゴリ:
+                        <span className="category">{post.Category}</span>
+                        {/* Category名をclassNameにする */}
+                      </p>
+                    )}
+                    {post.Tag && (
+                      <ul className="tag-list">
+                        <p>タグ:</p>
+                        {post.Tag.split(',').map((tag, index) => (
+                          <li className="tag-name" key={index}>
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                  {/* <p>
+                    {/* <p>
                     {(!post.preview || post.preview.length === 0) &&
                       'No preview available'}
                     {(post.preview || []).map((block, idx) =>
                       textBlock(block, true, `${post.Slug}${idx}`)
                     )}
                   </p> */}
-                </a>
-              </Link>
-            </div>
-          )
-        })}
+                  </a>
+                </Link>
+              </div>
+            )
+          })}
       </StyledComponent>
       <Footer />
     </>

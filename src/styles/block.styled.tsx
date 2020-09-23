@@ -29,7 +29,7 @@ export const StyledBlocks = styled.div`
     font-size: 1.8rem;
     font-weight: bold;
     padding: 12px 0;
-    margin: 12px 0;
+    margin: 36px 0 12px;
     border-bottom: 1px solid #444;
     @media (max-width: 600px) {
       font-size: 1.4rem;
@@ -38,7 +38,7 @@ export const StyledBlocks = styled.div`
   h3 {
     font-size: 1.6rem;
     font-weight: bold;
-    margin: 8px 0;
+    margin: 24px 0 8px;
     @media (max-width: 600px) {
       font-size: 1.2rem;
     }
@@ -66,6 +66,7 @@ export const StyledBlocks = styled.div`
       margin: 12px auto;
     }
   }
+
   code {
     display: inline-block;
     font-family: 'Verdana';
@@ -73,13 +74,14 @@ export const StyledBlocks = styled.div`
     /* font-weight: bold; */
     color: tomato;
     padding: 4px;
-    margin: 0 4px;
+    margin: 4px;
     background-color: #1c2022;
     border-radius: 3px;
     @media (max-width: 600px) {
       font-size: 0.8rem;
     }
   }
+
   pre {
     margin: 24px 48px;
     padding: 24px 36px;
@@ -174,7 +176,7 @@ export const StyledBlocks = styled.div`
       }
     }
   }
-  
+
   .to_do {
     input {
       :disabled {
@@ -211,19 +213,19 @@ export const StyledBlocks = styled.div`
         }
       }
       .description {
-        font-size: 1.0rem;
+        font-size: 1rem;
         color: #444;
         @media (max-width: 600px) {
-          font-size: 0.8rem;    
+          font-size: 0.8rem;
         }
       }
       .url {
-        font-size: 1.0rem;
+        font-size: 1rem;
         text-align: right;
         text-decoration: underline;
         @media (max-width: 600px) {
           font-size: 0.8rem;
-          text-align: left;    
+          text-align: left;
         }
       }
     }
@@ -231,8 +233,9 @@ export const StyledBlocks = styled.div`
       width: 240px;
       margin-left: 24px;
       @media (max-width: 600px) {
-      margin: 8px auto;
-      width: 300px;
+        margin: 8px auto;
+        width: 300px;
+      }
     }
   }
 
@@ -251,7 +254,7 @@ export const StyledBlocks = styled.div`
   .red {
     color: #db3636;
   }
-  .green {
+  .teal {
     color: #117061;
   }
   .gray {
@@ -277,7 +280,7 @@ export const StyledBlocks = styled.div`
   .red_background {
     background-color: #fae0e0;
   }
-  .green_background {
+  .teal_background {
     background-color: #d8eae7;
   }
   .yellow_background {

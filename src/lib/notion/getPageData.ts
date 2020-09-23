@@ -19,8 +19,7 @@ export default async function getPageData(pageId: string) {
 
 export function loadPageChunk({
   pageId,
-  // 受け取るBlockの上限
-  limit = 1000,
+  limit = 1000, // 受け取るBlockの上限
   cursor = { stack: [] },
   chunkNumber = 0,
   verticalColumns = false,
