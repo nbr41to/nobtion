@@ -56,7 +56,7 @@ export default ({ posts = [], preview }) => {
   const changeCategory = category => {
     setSelectCategory(category)
   }
-  console.log(posts)
+  // console.log(posts)
   return (
     <>
       <Header titlePre="Blog" />
@@ -146,14 +146,6 @@ export default ({ posts = [], preview }) => {
                         ))}
                       </ul>
                     )}
-
-                    {/* <p>
-                    {(!post.preview || post.preview.length === 0) &&
-                      'No preview available'}
-                    {(post.preview || []).map((block, idx) =>
-                      textBlock(block, true, `${post.Slug}${idx}`)
-                    )}
-                  </p> */}
                   </a>
                 </Link>
               </div>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledComponent = styled.footer`
-  width: 100vw;
+  width: 100%;
   margin: auto 0 0;
   small {
     font-family: Arial;
