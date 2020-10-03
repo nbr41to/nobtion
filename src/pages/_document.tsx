@@ -39,7 +39,7 @@ class MyDocument extends Document<Props> {
           `,
             }}
           />
-          {/* Google Adsence */}
+          {/* Google AdSence */}
           <script
             data-ad-client="ca-pub-6112933602862239"
             async
