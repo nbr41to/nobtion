@@ -19,6 +19,7 @@ async function main() {
   const pageId3 = uuid()
   let existingBlockId = await getExistingexistingBlockId()
 
+  console.log('createTable')
   const requestBody = {
     requestId: uuid(),
     transactions: [
@@ -105,6 +106,7 @@ async function main() {
                   { property: 'la`A', visible: true },
                   { property: 'a`af', visible: true },
                   { property: 'ijjk', visible: true },
+                  { property: '?WTY', visible: true },
                 ],
                 table_wrap: true,
               },
@@ -117,6 +119,7 @@ async function main() {
               alive: true,
             },
           },
+          // ここか？
           {
             id: collectionViewId,
             table: 'collection',
@@ -130,6 +133,7 @@ async function main() {
                 'la`A': { name: 'Published', type: 'checkbox' },
                 'a`af': { name: 'Date', type: 'date' },
                 ijjk: { name: 'Authors', type: 'person' },
+                '?WTY': { name: 'Created', type: 'created_time' },
               },
               format: {
                 collection_page_properties: [
@@ -137,6 +141,7 @@ async function main() {
                   { property: 'la`A', visible: true },
                   { property: 'a`af', visible: true },
                   { property: 'ijjk', visible: true },
+                  { property: '?WTY', visible: true },
                 ],
               },
               parent_id: collectionId,

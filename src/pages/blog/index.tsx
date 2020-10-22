@@ -18,7 +18,6 @@ import getBlogIndex from '../../lib/notion/getBlogIndex'
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
-
   const authorsToGet: Set<string> = new Set()
   const posts: any[] = Object.keys(postsTable)
     .map(slug => {
@@ -85,9 +84,9 @@ export default ({ posts = [], preview }) => {
             </li>
             <li
               className={selectCategory === 'Life' ? 'active' : ''}
-              onClick={() => setSelectCategory('Life')}
+              onClick={() => setSelectCategory('Life×Health')}
             >
-              Life
+              Life×Health
             </li>
           </ul>
           {/* <ul>

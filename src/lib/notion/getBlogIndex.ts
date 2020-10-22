@@ -11,6 +11,7 @@ export default async function getBlogIndex(previews = true) {
   const useCache = process.env.USE_CACHE === 'true'
   const cacheFile = `${BLOG_INDEX_CACHE}${previews ? '_previews' : ''}`
 
+  console.log('getBlogIndex')
   if (useCache) {
     try {
       postsTable = JSON.parse(await readFile(cacheFile, 'utf8'))
@@ -82,5 +83,7 @@ export default async function getBlogIndex(previews = true) {
     }
   }
 
+  // console.log("ここ" + Object.keys(postsTable))
+  // key=titleのオブジェクトであることが判明
   return postsTable
 }

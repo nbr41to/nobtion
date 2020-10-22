@@ -19,10 +19,12 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
   const colId = Object.keys(col.recordMap.collection)[0]
   const schema = col.recordMap.collection[colId].value.schema
   const schemaKeys = Object.keys(schema)
-
+  console.log(schema)
+  console.log(schemaKeys)
   for (const entry of entries) {
     const props = entry.value && entry.value.properties
     const row: any = {}
+    console.log(props)
 
     if (!props) continue
     if (entry.value.content) {
@@ -32,7 +34,7 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
     schemaKeys.forEach(key => {
       // might be undefined
       let val = props[key] && props[key][0][0]
-
+      console.log(key, val)
       // authors and blocks are centralized
       if (val && props[key][0][1]) {
         const type = props[key][0][1][0]
@@ -63,7 +65,7 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
             const providedDate = new Date(
               type[1].start_date + ' ' + (type[1].start_time || '')
             ).getTime()
-
+            // console.log("getTable" + providedDate)
             // calculate offset from provided time zone
             const timezoneOffset =
               new Date(
