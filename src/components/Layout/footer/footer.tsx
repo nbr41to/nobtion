@@ -1,6 +1,6 @@
-import ExtLink from '../ext-link'
-import GitHub from '../svgs/github'
-import Twitter from '../svgs/twitter'
+import ExtLink from '../../ext-link'
+import GitHub from '../../svgs/github'
+import Twitter from '../../svgs/twitter'
 import { StyledComponent } from './footer.styled'
 
 export default () => (

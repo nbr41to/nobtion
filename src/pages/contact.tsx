@@ -1,5 +1,4 @@
-import Header from '../components/header'
-import Footer from '../components/footer'
+import Layout from '../components/Layout'
 import ExtLink from '../components/ext-link'
 import { StyledComponent } from '../styles/contact.styled'
 
@@ -35,8 +34,7 @@ const contacts = [
 ]
 
 export default () => (
-  <>
-    <Header titlePre="Contact" />
+  <Layout titlePre="Contact">
     <StyledComponent>
       <ExtLink className="logo" href="https://nbr41.com/">
         <img src="/avatar.png" alt="avatar with letters JJ" height={60} />
@@ -53,6 +51,5 @@ export default () => (
         })}
       </div>
     </StyledComponent>
-    <Footer />
-  </>
+  </Layout>
 )

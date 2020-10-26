@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import fetch from 'node-fetch'
 import { useRouter } from 'next/router'
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import Layout from '../../components/Layout'
 import Heading from '../../components/heading'
 import ExtLink from '../../components/ext-link'
 import components from '../../components/dynamic'
@@ -161,8 +160,7 @@ const RenderPost = ({ post, redirect, preview }) => {
   // console.log(post)
 
   return (
-    <>
-      <Header titlePre={post.Page} />
+    <Layout titlePre={post.Page}>
       {/* {preview && (
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
@@ -514,8 +512,7 @@ const RenderPost = ({ post, redirect, preview }) => {
           })}
         </div>
       </StyledBlocks>
-      <Footer />
-    </>
+    </Layout>
   )
 }
 

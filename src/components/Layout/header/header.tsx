@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import ExtLink from '../ext-link'
+import ExtLink from '../../ext-link'
 import { useRouter } from 'next/router'
 import { StyledComponent } from './header.styled'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
-  { label: 'Blog', page: '/blog' },
+  { label: 'About', page: '/about' },
   { label: 'Contact', page: '/contact' },
 ]
 

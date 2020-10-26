@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import Header from '../../components/Layout/header'
+import Footer from '../../components/Layout/footer'
 
 import { StyledComponent } from '../../styles/blog.styled'
 import blogStyles from '../../styles/blog.module.css'
