@@ -7,12 +7,13 @@ export const StyledBlocks = styled.div`
     padding: 16px;
   }
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     padding: 12px 20px;
-    margin: 0 auto;
+    margin: 12px auto;
     border-radius: 4px;
-    background-color: #ddd;
+    color: white;
+    background-color: #112;
     @media (max-width: 600px) {
       font-size: 1.4rem;
     }
