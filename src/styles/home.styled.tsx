@@ -126,4 +126,12 @@ export const StyledComponent = styled.div`
       }
     }
   }
+
+  .btn {
+    display: block;
+    padding: 8px 12px;
+    border: 1px solid #000;
+    margin: 8px auto;
+    border-radius: 8px;
+  }
 `

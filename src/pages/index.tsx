@@ -46,8 +46,10 @@ export async function getStaticProps({ preview }) {
 }
 
 export default ({ posts = [], preview }) => {
-  const [selectCategory, setSelectCategory] = useState('ALL')
   const [categoris, setCategoris] = useState(['ALL'])
+  const [selectCategory, setSelectCategory] = useState('ALL')
+  const [maxDisplayCount, setMaxDisplayCount] = useState(15)
+
   useEffect(() => {
     posts.map(post => {
       if (!categoris.includes(post.Category)) {
@@ -55,10 +57,10 @@ export default ({ posts = [], preview }) => {
       }
     })
   }, [categoris])
-  console.log(categoris)
 
-  const changeCategory = category => {
-    setSelectCategory(category)
+  const moreMaxDisplayCount = () => {
+    setMaxDisplayCount(maxDisplayCount + 10)
+    window.scrollTo(0, window.pageYOffset - 100)
   }
 
   return (
@@ -93,17 +95,7 @@ export default ({ posts = [], preview }) => {
           </ul> */}
           </div>
           <h2 style={{ marginLeft: '12px', fontWeight: 'bold' }}>記事一覧</h2>
-          {/* 記事の有無の判別？ */}
-          {posts.filter(post => {
-            if (selectCategory === 'ALL') {
-              return true
-            } else {
-              return post.Category === selectCategory
-            }
-          }).length === 0 && (
-            <p className="nopost-message">記事がありません。</p>
-          )}
-          {/* 記事を並べる */}
+          {/* カテゴリーのフィルター */}
           {posts
             .filter(post => {
               if (selectCategory === 'ALL') {
@@ -112,6 +104,15 @@ export default ({ posts = [], preview }) => {
                 return post.Category === selectCategory
               }
             })
+            .sort((a, b) => {
+              {
+                /* 記事を並べる */
+              }
+              if (a.Date < b.Date) return 1
+              if (a.Date > b.Date) return -1
+              return 0
+            })
+            .filter((_, index) => index < maxDisplayCount)
             .map(post => {
               return (
                 <div className="post-card" key={post.Slug}>
@@ -121,10 +122,6 @@ export default ({ posts = [], preview }) => {
                         <span className={blogStyles.draftBadge}>Draft</span>
                       )}
                       <h3 className="post-title">{post.Page}</h3>
-                      {/* 書いた人 */}
-                      {/* {post.Authors.length > 0 && (
-                  <div className="authors">By: {post.Authors.join(' ')}</div>
-                )} */}
                       {post.Date && (
                         <p className="posted">
                           投稿日: {getDateStr(post.Date)}
@@ -153,6 +150,9 @@ export default ({ posts = [], preview }) => {
               )
             })}
         </div>
+        <button className="btn" onClick={moreMaxDisplayCount}>
+          もっと見る
+        </button>
       </StyledComponent>
     </Layout>
   )

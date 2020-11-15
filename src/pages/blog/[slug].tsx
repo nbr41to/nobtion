@@ -157,6 +157,7 @@ const RenderPost = ({ post, redirect, preview }) => {
       </div>
     )
   }
+  // post property デバック用
   // console.log(post)
 
   return (
@@ -288,7 +289,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                 const childStyle: CSSProperties = useWrapper
                   ? {
                       width: '100%',
-                      height: 'auto',
+                      // height: 'auto',
                       border: 'none',
                       // position: 'relative',
                       // top: 0,
@@ -296,7 +297,8 @@ const RenderPost = ({ post, redirect, preview }) => {
                   : {
                       width,
                       border: 'none',
-                      height: 'auto',
+                      // height: "auto",
+                      // minHeight: '400px',
                       display: 'block',
                       maxWidth: '100%',
                     }
