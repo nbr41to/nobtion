@@ -68,6 +68,11 @@ export const StyledBlocks = styled.div`
     }
   }
 
+  iframe {
+    height: auto;
+    min-height: 400px;
+  }
+
   code {
     display: inline-block;
     font-family: 'Verdana';

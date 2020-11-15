@@ -97,4 +97,13 @@ export const StyledComponent = styled.div`
       }
     }
   }
+
+  .btn {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #000;
+    margin: 8px;
+    border-radius: 8px;
+  }
 `
