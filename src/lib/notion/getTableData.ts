@@ -24,14 +24,14 @@ export default async function loadTable(collectionBlock: any, isPosts = false) {
   for (const entry of entries) {
     const props = entry.value && entry.value.properties
     const row: any = {}
-    console.log(props)
+    // console.log(props)
 
     if (!props) continue
     if (entry.value.content) {
       row.id = entry.value.id
     }
 
-    schemaKeys.forEach(key => {
+    schemaKeys.forEach((key) => {
       // might be undefined
       let val = props[key] && props[key][0][0]
       // console.log(key, val)

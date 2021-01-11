@@ -16,7 +16,7 @@ export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
   const authorsToGet: Set<string> = new Set()
   const posts: any[] = Object.keys(postsTable)
-    .map(slug => {
+    .map((slug) => {
       const post = postsTable[slug]
       // remove draft posts in production
       if (!preview && !postIsPublished(post)) {
@@ -32,8 +32,8 @@ export async function getStaticProps({ preview }) {
 
   const { users } = await getNotionUsers([...authorsToGet])
 
-  posts.map(post => {
-    post.Authors = post.Authors.map(id => users[id].full_name)
+  posts.map((post) => {
+    post.Authors = post.Authors.map((id) => users[id].full_name)
   })
 
   return {
@@ -41,7 +41,7 @@ export async function getStaticProps({ preview }) {
       preview: preview || false,
       posts,
     },
-    unstable_revalidate: 10,
+    revalidate: 10,
   }
 }
 
@@ -51,7 +51,7 @@ export default ({ posts = [], preview }) => {
   const [maxDisplayCount, setMaxDisplayCount] = useState(15)
 
   useEffect(() => {
-    posts.map(post => {
+    posts.map((post) => {
       if (!categoris.includes(post.Category)) {
         setCategoris([...categoris, post.Category])
       }
@@ -97,7 +97,7 @@ export default ({ posts = [], preview }) => {
           <h2 style={{ marginLeft: '12px', fontWeight: 'bold' }}>記事一覧</h2>
           {/* カテゴリーのフィルター */}
           {posts
-            .filter(post => {
+            .filter((post) => {
               if (selectCategory === 'ALL') {
                 return true
               } else {
@@ -113,7 +113,7 @@ export default ({ posts = [], preview }) => {
               return 0
             })
             .filter((_, index) => index < maxDisplayCount)
-            .map(post => {
+            .map((post) => {
               return (
                 <div className="post-card" key={post.Slug}>
                   <Link href="/blog/[slug]" as={getBlogLink(post.Slug)}>

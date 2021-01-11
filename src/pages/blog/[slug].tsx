@@ -30,7 +30,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         redirect: '/blog',
         preview: false,
       },
-      unstable_revalidate: 5,
+      revalidate: 5,
     }
   }
   const postData = await getPageData(post.id)
@@ -59,14 +59,14 @@ export async function getStaticProps({ params: { slug }, preview }) {
   }
 
   const { users } = await getNotionUsers(post.Authors || [])
-  post.Authors = Object.keys(users).map(id => users[id].full_name)
+  post.Authors = Object.keys(users).map((id) => users[id].full_name)
 
   return {
     props: {
       post,
       preview: preview || false,
     },
-    unstable_revalidate: 10,
+    revalidate: 10,
   }
 }
 
@@ -77,8 +77,8 @@ export async function getStaticPaths() {
   // for actually published ones
   return {
     paths: Object.keys(postsTable)
-      .filter(post => postsTable[post].Published === 'Yes')
-      .map(slug => getBlogLink(slug)),
+      .filter((post) => postsTable[post].Published === 'Yes')
+      .map((slug) => getBlogLink(slug)),
     fallback: true,
   }
 }
@@ -217,10 +217,10 @@ const RenderPost = ({ post, redirect, preview }) => {
                 React.createElement(
                   listTagName,
                   { key: listLastId! },
-                  Object.keys(listMap).map(itemId => {
+                  Object.keys(listMap).map((itemId) => {
                     if (listMap[itemId].isNested) return null
 
-                    const createEl = item =>
+                    const createEl = (item) =>
                       React.createElement(
                         components.li || 'ul',
                         { key: item.key },
@@ -229,7 +229,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                           ? React.createElement(
                               components.ul || 'ul',
                               { key: item + 'sub-list' },
-                              item.nested.map(nestedId =>
+                              item.nested.map((nestedId) =>
                                 createEl(listMap[nestedId])
                               )
                             )
@@ -278,9 +278,11 @@ const RenderPost = ({ post, redirect, preview }) => {
                 const roundFactor = Math.pow(10, 2)
                 // calculate percentages
                 const width = block_width
-                  ? `${Math.round(
-                      (block_width / baseBlockWidth) * 100 * roundFactor
-                    ) / roundFactor}%`
+                  ? `${
+                      Math.round(
+                        (block_width / baseBlockWidth) * 100 * roundFactor
+                      ) / roundFactor
+                    }%`
                   : block_height || '100%'
 
                 const isImage = type === 'image'
